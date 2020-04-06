@@ -1,5 +1,42 @@
+.main {
+    background-image: url("../images/maxresdefault.jpg");
+}
+
 .jumbotron {
+    background-size: cover;
+    background: rgba(0,0,0, 0.5);
+}
+
+.container {
     text-align: center;
+    color: rgb(235, 235, 235);
     font-size: 80px;
-    color: teal;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+}
+
+.card {
+    margin: 20px;
+    border: 1px solid rgb(65, 64, 64);
+}
+
+.card-header {
+    text-align: center;
+    background-color: rgb(27, 107, 131);
+    color: white;
+}
+
+form {
+    padding: 20px;
+}
+
+label {
+    margin: 10px 0px 5px 0px;
+}
+
+.btn {
+    text-align: center;
+    background-color: rgb(27, 107, 131);
+    border: none;
+    color: white;
 }
