@@ -13,6 +13,7 @@
     font-size: 80px;
     font-weight: bold;
     text-shadow: 1px 1px black;
+    font-family: 'Roboto Slab', serif;
 }
 
 .card {
@@ -24,14 +25,21 @@
     text-align: center;
     background-color: rgb(27, 107, 131);
     color: white;
+    font-family: 'Roboto Slab', serif;
+}
+
+thead, tbody {
+    font-family: 'Roboto Slab', serif;
 }
 
 form {
     padding: 20px;
+    font-family: 'Roboto Slab', serif;
 }
 
 label {
     margin: 10px 0px 5px 0px;
+    font-family: 'Roboto Slab', serif;
 }
 
 .btn {
@@ -39,4 +47,5 @@ label {
     background-color: rgb(27, 107, 131);
     border: none;
     color: white;
+    font-family: 'Roboto Slab', serif;
 }

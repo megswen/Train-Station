@@ -9,7 +9,7 @@
     <!--Style CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Google Fonts-->
-    
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 
     <title>Train Station</title>
 
@@ -31,7 +31,7 @@
             <div class="col-lg-10">
                 <div class="card card-default">
                     <div class="card-header">Train Schedule</div>
-                    <table class="table">
+                    <table class="table" id="train-table">
                         <thead>
                         <tr>
                             <th scope="col">Train Name</th>
@@ -64,47 +64,28 @@
                     <form>
                         <div class="add-train-form">
                         <label for="input-train-name">Train Name</label>
-                        <input type="train-name" class="form-control" id="train-name">
+                        <input type="train-name" class="form-control" id="name-input">
                         </div>
                         <div class="form-group">
                         <label for="input-destination">Destination</label>
-                        <input type="destination" class="form-control" id="destination">
+                        <input type="destination" class="form-control" id="destination-input">
                         </div>
                         <div class="form-group">
                             <label for="input-train-time">First Train Time (military time)</label>
-                            <input type="train-time" class="form-control" id="train-time">
+                            <input type="train-time" class="form-control" id="time-input">
                         </div>
                         <div class="form-group">
                             <label for="input-frequency">Frequency (min)</label>
-                            <input type="frequency" class="form-control" id="frequency">
+                            <input type="frequency" class="form-control" id="frequency-input">
                         </div>
-                        <button type="submit" class="btn mx-auto d-block">Add my Train!</button>
+                        <button type="submit" class="btn mx-auto d-block" id ="submit-button">Add my Train!</button>
                     </form>
                 </div>
             </div>
         </div> 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--Moment JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!--Javascript-->
