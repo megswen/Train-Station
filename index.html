@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
     <title>Train Station</title>
 
@@ -20,9 +23,7 @@
         <div class="jumbotron">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        Train Station
-                    </div>
+                    <div class="col-lg-12">Train Station</div>
                 </div>
             </div>
         </div>
@@ -42,13 +43,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>The Polar Express</td>
-                            <td>North Pole</td>
-                            <td>30</td>
-                            <td>00:00</td>
-                            <td></td>
-                        </tr>
                         <!-- Insert additional train rows here -->
                         </tbody>
                     </table>
@@ -58,25 +52,23 @@
         <div class="row justify-content-md-center">   
             <div class="col-lg-10">
                 <div class="card card-default">
-                    <div class="card-header">
-                        Add a Train
-                    </div>
+                    <div class="card-header">Add a Train</div>
                     <form>
                         <div class="add-train-form">
-                        <label for="input-train-name">Train Name</label>
-                        <input type="train-name" class="form-control" id="name-input">
+                            <label for="input-train-name">Train Name</label>
+                            <input type="text" class="form-control" id="name-input">
                         </div>
                         <div class="form-group">
-                        <label for="input-destination">Destination</label>
-                        <input type="destination" class="form-control" id="destination-input">
+                            <label for="input-destination">Destination</label>
+                            <input type="text" class="form-control" id="destination-input">
                         </div>
                         <div class="form-group">
-                            <label for="input-train-time">First Train Time (military time)</label>
-                            <input type="train-time" class="form-control" id="time-input">
+                            <label for="input-train-time">Time First Train Leaves</label>
+                            <input type="time" class="form-control" id="time-input">
                         </div>
                         <div class="form-group">
                             <label for="input-frequency">Frequency (min)</label>
-                            <input type="frequency" class="form-control" id="frequency-input">
+                            <input type="number" class="form-control" id="frequency-input">
                         </div>
                         <button type="submit" class="btn mx-auto d-block" id ="submit-button">Add my Train!</button>
                     </form>
@@ -84,6 +76,7 @@
             </div>
         </div> 
     </div>
+
 <!--Moment JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
 <!--jQuery-->
