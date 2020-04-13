@@ -51,26 +51,55 @@ $(document).ready(function() {
     }); 
 
     database.ref().on("child_added", function(childSnapshot) {
+        var currentTime = moment();
+        var firstTrainNew = moment(childSnapshot.val().firstTrain, "HH:mm");
+        var frequency = childSnapshot.val().frequency;
+        console.log(frequency);
+       
+        var nextTrain;
+        var minAway;
+
+        if (firstTrainNew.isAfter(currentTime)) {
+            nextTrain = firstTrainNew;
+            minAway = firstTrainNew.diff(currentTime, "minutes");
+        } else {
+            var minutesSinceFirst = currentTime.diff(firstTrainNew, "minutes");
+            var minutesSinceLast = minutesSinceFirst % frequency;
+            minAway = frequency - minutesSinceLast;
+            nextTrain = currentTime.add(minAway, "minutes");
+        }
+        
         var tRow = $("<tr>");
         var trainName = $("<td>").text(childSnapshot.val().name);
         var trainDestination = $("<td>").text(childSnapshot.val().destination);
         var freqMin = $("<td>").text(childSnapshot.val().frequency);
-        var nextTrainDisplay = $("<td>").text();
-        var minAwayDisplay = $("<td>").text("Not done yet");
+        var nextTrainDisplay = $("<td>").text(nextTrain.format("HH:mm"));
+        var minAwayDisplay = $("<td>").text(minAway);
         tRow.append(trainName, trainDestination, freqMin, nextTrainDisplay, minAwayDisplay);
-        //append the table row to the table body
         $("tbody").append(tRow);
 
-        // time the train leaves % frequency
-        var currentTime = moment();
-        //console.log(currentTime);
+        
 
-        var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm");
-        console.log(childSnapshot.val().firstTrain);
+        
 
-        var frequency 
 
-        console.log(currentTime.diff(firstTrainNew), currentTime.toISOString(), firstTrainNew.toISOString());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,20 +114,5 @@ $(document).ready(function() {
         // var minAway = childSnapshot.val().frequency - remainder;
         // var nextTrain = moment().add(minAway, 'minutes');
         // nextTrain = moment(nextTrain).format('hh:mm');
-
-        // var createRow = function(data) {
-        //     var tRow = $("<tr>");
-        //     // Methods run on jQuery selectors return the selector they we run on
-        //     // This is why we can create and save a reference to a td in the same statement we update its text
-           
-        //     var nextTrainDisplay = $("<td>").text(moment(nextTrain).format('HH:mm'));
-        //     var minAwayDisplay = $("<td>").text(minAway);
-        //     //append the newly create table data to the rable row
-        //     tRow.append(trainName, trainDestination, freqMin, nextTrainDisplay, minAwayDisplay);
-        //     //append the table row to the table body
-        //     $("tbody").append(tRow);
-        // }
-
-        // createRow();
     });
 }); 
